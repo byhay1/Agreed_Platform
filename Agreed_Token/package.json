@@ -10,5 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Byron Hayes",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "openzeppelin-solidity": "^4.6.0"
+  }
 }
