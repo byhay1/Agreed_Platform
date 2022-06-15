@@ -507,7 +507,7 @@ contract Token is ERC20, Ownable {
         return rank[_holder];
     }
 
-    //********Getter functions for using rank outside of smart contracts
+    //***Getter functions for using rank outside of smart contracts***
     function getRank(address _holder) public view returns (UserRank) {
         return rank[_holder];
     }
@@ -520,15 +520,15 @@ contract Token is ERC20, Ownable {
         return rank[_holder] >= _rank;
     }
 
-    //************Restrict contract functionality by rank
-    //uint8 values => 0 = None, 1 = Silver, 2 = Gold, 3 = Platinum, 4 = Diamond
+    //***Restrict contract functionality by rank***
+    //uint8 values => 0 = None, 1 = Silver, 2 = Gold, 3 = Platinum, 4 = Diamond (see. enum UserRank)
 
     modifier restrictAccess(uint8 _rank) {
         require(uint8(rank[msg.sender]) >= _rank, "Higher rank required");
         _;
     }
 
-    //example1 (works only for rank 4) 
+    //works only for rank 4
     function restricted1(uint256 _firstValue, uint256 _secondValue)
         public
         view
@@ -538,7 +538,17 @@ contract Token is ERC20, Ownable {
         return _firstValue * _secondValue; 
     }
 
-    //example2 (works only for rank 2 and above)
+    //works only for rank 3
+    function restricted2(uint256 _firstValue, uint256 _secondValue)
+        public
+        view
+        restrictAccess(3)
+        returns (uint256)
+    {
+        return _firstValue * _secondValue; //for rank 2 and above
+    }
+
+    //works only for rank 2
     function restricted2(uint256 _firstValue, uint256 _secondValue)
         public
         view
@@ -548,5 +558,14 @@ contract Token is ERC20, Ownable {
         return _firstValue * _secondValue; //for rank 2 and above
     }
 
-    
+    //works only for rank 1
+    function restricted2(uint256 _firstValue, uint256 _secondValue)
+        public
+        view
+        restrictAccess(1)
+        returns (uint256)
+    {
+        return _firstValue * _secondValue; //for rank 2 and above
+    }
+
 }
