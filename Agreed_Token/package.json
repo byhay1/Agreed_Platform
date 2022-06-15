@@ -12,6 +12,10 @@
   "author": "Byron Hayes",
   "license": "ISC",
   "devDependencies": {
+    "hardhat": "^2.9.9",
     "openzeppelin-solidity": "^4.6.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0"
   }
 }
