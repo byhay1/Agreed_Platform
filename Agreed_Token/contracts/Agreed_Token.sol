@@ -490,16 +490,16 @@ contract Token is ERC20, Ownable {
 
     function updateRank(address _holder) private returns (UserRank) {
         uint256 tokenBalance = ((balanceOf(_holder)) / 10**decimals());
-        if (tokenBalance >= 100 && tokenBalance < 1000) {
+        if (tokenBalance >= 100 && tokenBalance <= 1000) {
             rank[_holder] = UserRank.Silver;
         }
-        if (tokenBalance >= 1000 && tokenBalance < 10000) {
+        if (tokenBalance > 1000 && tokenBalance <= 10000) {
             rank[_holder] = UserRank.Gold;
         }
-        if (tokenBalance >= 10000 && tokenBalance < 100000) {
+        if (tokenBalance > 10000 && tokenBalance <= 100000) {
             rank[_holder] = UserRank.Platinum;
         }
-        if (tokenBalance >= 100000) {
+        if (tokenBalance > 100000) {
             rank[_holder] = UserRank.Diamond;
         } else if (tokenBalance < 100) {
             rank[_holder] = UserRank.None;
