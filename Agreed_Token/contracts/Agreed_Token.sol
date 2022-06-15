@@ -529,7 +529,7 @@ contract Token is ERC20, Ownable {
     }
 
     //works only for rank 4
-    function restricted1(uint256 _firstValue, uint256 _secondValue)
+    function restrictedDiamond(uint256 _firstValue, uint256 _secondValue)
         public
         view
         restrictAccess(4)
@@ -539,7 +539,7 @@ contract Token is ERC20, Ownable {
     }
 
     //works only for rank 3
-    function restricted2(uint256 _firstValue, uint256 _secondValue)
+    function restrictedPlatinum(uint256 _firstValue, uint256 _secondValue)
         public
         view
         restrictAccess(3)
@@ -549,7 +549,7 @@ contract Token is ERC20, Ownable {
     }
 
     //works only for rank 2
-    function restricted2(uint256 _firstValue, uint256 _secondValue)
+    function restrictedGold(uint256 _firstValue, uint256 _secondValue)
         public
         view
         restrictAccess(2)
@@ -559,7 +559,7 @@ contract Token is ERC20, Ownable {
     }
 
     //works only for rank 1
-    function restricted2(uint256 _firstValue, uint256 _secondValue)
+    function restrictedSilver(uint256 _firstValue, uint256 _secondValue)
         public
         view
         restrictAccess(1)
