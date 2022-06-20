@@ -545,7 +545,7 @@ contract Token is ERC20, Ownable {
         restrictAccess(3)
         returns (uint256)
     {
-        return _firstValue * _secondValue; //for rank 2 and above
+        return _firstValue * _secondValue;
     }
 
     //works only for rank 2
@@ -555,7 +555,7 @@ contract Token is ERC20, Ownable {
         restrictAccess(2)
         returns (uint256)
     {
-        return _firstValue * _secondValue; //for rank 2 and above
+        return _firstValue * _secondValue;
     }
 
     //works only for rank 1
@@ -565,7 +565,7 @@ contract Token is ERC20, Ownable {
         restrictAccess(1)
         returns (uint256)
     {
-        return _firstValue * _secondValue; //for rank 2 and above
+        return _firstValue * _secondValue;
     }
 
 }
