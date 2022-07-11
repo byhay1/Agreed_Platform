@@ -1,4 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
+import { ethers } from "ethers";
 //import './App.css';
 
 function App() {
@@ -15,6 +17,20 @@ function App() {
           </div>
           <div class="col col-lg-2">
             Your Balance: 0 //static for now
+          </div>
+          <div class="col col-lg-2">
+          <form>
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="0" onChange= value="test" />
+              </div>
+              <button type="submit" class="btn btn-success">Deposit</button>
+          </form>
+          <form>
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="0" value="test" />
+              </div>
+              <button type="submit" class="btn btn-primary">Deposit</button>
+          </form>
           </div>
         </div>
       </div>
