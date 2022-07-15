@@ -4,13 +4,24 @@ import { ethers } from "ethers";
 //import './App.css';
 
 function App() {
+    const[rank, setRank] = useState('');
+    const[depositValue, setDepositValue] = useState('');
+    const[rankValue, setRankValue] = useState('');
+
+    const handleDeposit = () => {
+      setDepositValue(e.target.value);
+    }
+
+    const handleRank = () => {
+      setRankValue(e.target.value)
+    }
   return (
     //--- Selection Bar,Show level, amount of AGRD,
     <div class="container">
       <div class="container">
         <div class="row">
           <div class="col">
-            <AREA FOR BUTTONS>
+            AREA FOR BUTTONS
           </div>
           <div class="col-md-auto">
             Your Tier: null //static for now
@@ -18,16 +29,17 @@ function App() {
           <div class="col col-lg-2">
             Your Balance: 0 //static for now
           </div>
+
           <div class="col col-lg-2">
           <form>
               <div class="form-group">
-                <input type="number" class="form-control" placeholder="0" onChange= value="test" />
+                <input type="number" class="form-control" placeholder="0" onChange={handleDeposit} value={depositValue} />
               </div>
               <button type="submit" class="btn btn-success">Deposit</button>
           </form>
           <form>
               <div class="form-group">
-                <input type="number" class="form-control" placeholder="0" value="test" />
+                <input type="number" class="form-control" placeholder="0" onChange={handleRank}  value={rankValue} />
               </div>
               <button type="submit" class="btn btn-primary">Deposit</button>
           </form>
