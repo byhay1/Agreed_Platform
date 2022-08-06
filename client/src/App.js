@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import logo from './logo.svg';
 import { ethers } from "ethers";
 //import './App.css';
@@ -8,15 +8,44 @@ function App() {
     const[depositValue, setDepositValue] = useState('');
     const[rankValue, setRankValue] = useState('');
 
-    const handleDeposit = () => {
+    // A Web3Provider wraps a standard Web3 provider, which is
+    // what MetaMask injects as window.ethereum into each page
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    // The MetaMask plugin also allows signing transactions to
+    // send ether and pay to change state within the blockchain.
+    // For this, you need the account signer...
+    const signer = provider.getSigner()
+
+    // MetaMask requires requesting permission to connect users accounts
+    useEffect(() => {
+      const connectWallet = async () => {
+        await provider.send("eth_requestAccounts", []);}
+      connectWallet()
+      .catch(console.error);
+    })
+
+
+
+    const handleDeposit = (e) => {
       setDepositValue(e.target.value);
     }
 
-    const handleRank = () => {
+    const handleRank = (e) => {
       setRankValue(e.target.value)
     }
+
+    const handleDepositSubmit = (e) => {
+      e.preventDefault();
+      console.log(handleDeposit);
+    }
+
+    const handleRankSubmit = (e) => {
+      e.preventDefault();
+      console.log(handleRank);
+    }
   return (
-    //--- Selection Bar,Show level, amount of AGRD,
+    //--- Selection Bar,Show level, amount of AGRD
+    <Fragment>
     <div class="container">
       <div class="container">
         <div class="row">
@@ -31,37 +60,36 @@ function App() {
           </div>
 
           <div class="col col-lg-2">
-          <form>
+          <form onSubmit={handleDepositSubmit}>
               <div class="form-group">
                 <input type="number" class="form-control" placeholder="0" onChange={handleDeposit} value={depositValue} />
               </div>
               <button type="submit" class="btn btn-success">Deposit</button>
           </form>
-          <form>
+          <form onSubmit={handleRankSubmit}>
               <div class="form-group">
                 <input type="number" class="form-control" placeholder="0" onChange={handleRank}  value={rankValue} />
               </div>
-              <button type="submit" class="btn btn-primary">Deposit</button>
+              <button type="submit" class="btn btn-primary">Get Rank</button>
           </form>
           </div>
         </div>
       </div>
     </div>
 
-    //--- Introduction
+
+
     <div class="container">
-        <!-- Content here -->
         <p> Fill with some sort of website introduction once completed - or a template</p><p></p><p></p>
     </div>
 
-    //---second part of page
+
 
     <div class="container">
       <div class="container">
         <div class="row">
           <div class="col-sm">
-            <h3> Diamond </h3>
-            <p>
+            Diamond
           </div>
           <div class="col-sm">
             Platinum
@@ -75,6 +103,7 @@ function App() {
         </div>
       </div>
     </div>
+    </Fragment>
   );
 }
 
