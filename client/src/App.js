@@ -556,7 +556,7 @@ function App() {
 }];
 
 //  const contract = new ethers.Contract(ContractAddress, ContractABI, signer);
-  const contract = new ethers.Contract(ContractAddress, ContractABI.abi, signer);
+  const contract = new ethers.Contract(ContractAddress, ContractABI[0].abi, signer);
 
   // MetaMask requires requesting permission to connect users accounts
 
@@ -690,15 +690,13 @@ function App() {
         <Navbar bg="#a1fcd9" variant="light">
           <Container className="">
             <Nav className="container-fluid flex-wrap">
-              <Nav.Link className="ms-auto" href="/about">
-                About
-              </Nav.Link>
-              <Nav.Link href="/contact">Contact Us</Nav.Link>
-              <Nav.Link href="/team">Team</Nav.Link>
-              <Nav.Link href="/Instagram">Instagram</Nav.Link>
-              <Nav.Link href="/Telegram">Telegram</Nav.Link>
-              <Nav.Link href="/Discord">Discord</Nav.Link>
-              <Nav.Link href="/Facebook">Facebook</Nav.Link>
+              <Nav.Link className="ms-auto" href="https://agreed.techruche.co/comingsoon/comingsoon.html">About</Nav.Link>
+              <Nav.Link href="mailto:everythingtechruche@gmail.com">Contact Us</Nav.Link>
+              <Nav.Link href="https://agreed.techruche.co/comingsoon/comingsoon.html">Team</Nav.Link>
+              <Nav.Link href="https://agreed.techruche.co/comingsoon/comingsoon.html">Instagram</Nav.Link>
+              <Nav.Link href="https://agreed.techruche.co/comingsoon/comingsoon.html">Telegram</Nav.Link>
+              <Nav.Link href="https://agreed.techruche.co/comingsoon/comingsoon.html">Discord</Nav.Link>
+              <Nav.Link href="https://agreed.techruche.co/comingsoon/comingsoon.html">Facebook</Nav.Link>
             </Nav>
           </Container>
         </Navbar>

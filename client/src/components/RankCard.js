@@ -24,12 +24,12 @@ const RankCard = ({ rankname, index }) => {
       <Card.Body>
         <Card.Title>{rankname}</Card.Title>
         <Card.Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Create a private contract! Based on your rank you may be limited
+          Click 'Learn More' for more details on rank limitations.
         </Card.Text>
       </Card.Body>
       <Card.Body>
-        <Button variant="dark" size="lg" href="somwhere">
+        <Button variant="dark" size="lg" href="https://agreed.techruche.co/comingsoon/comingsoon.html">
           Enter
         </Button>
       </Card.Body>
